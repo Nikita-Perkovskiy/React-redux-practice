@@ -1,27 +1,34 @@
 import "./App.css";
 import MainPage from "./Pages/MainPage/MainPage";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { sendRequest } from "./Helpers/sendRequest";
+import { API_KEY_3, IMG_URL, API_URL } from "./Helpers/API";
 
 function App() {
-  const [basketIsFull, setbasketIsFull] = useState(false);
-  const [basketCount, setbasketCount] = useState(0);
+  const [moviesTV, setMoviesTV] = useState({});
+  const [moviesCinema, setMoviesCinema] = useState({});
 
-  const addbasketCount = () => {
-    setbasketCount(basketCount + 1);
-  };
+  useEffect(() => {
+    sendRequest(`${API_URL}/discover/tv?api_key=${API_KEY_3}`).then((data) => {
+      setMoviesTV(data);
+    });
+  }, [moviesTV]);
 
-  const activeBasketIsFull = () => {
-    setbasketIsFull(true);
-  };
+  useEffect(() => {
+    sendRequest(`${API_URL}/discover/movie?api_key=${API_KEY_3}`).then(
+      (data) => {
+        setMoviesCinema(data);
+      }
+    );
+  }, [moviesCinema]);
 
   return (
     <div className="App">
       <MainPage
-        basketIsFull={basketIsFull}
-        basketCount={basketCount}
-        addbasketCount={addbasketCount}
-        activeBasketIsFull={activeBasketIsFull}
+        moviesCinema={moviesCinema}
+        moviesTV={moviesTV}
+        IMG_URL={IMG_URL}
       />
     </div>
   );
