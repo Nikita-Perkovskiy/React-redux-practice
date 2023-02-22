@@ -1,28 +1,26 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import "./index.scss";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 const Header = () => {
   return (
-    <div style={{ width: "100%", height: "80px", backgroundColor: "#0b483f" }}>
-      <div className="d-flex justify-content-around  align-items-center mx-5">
-        <h3>
-          <NavLink to="/" activeClassName="navLinkActive">
-            1
-          </NavLink>
-        </h3>
-        <h3>
-          <NavLink to="Block2" activeClassName="navLinkActive">
-            2
-          </NavLink>
-        </h3>
-        <h3>
-          <NavLink to="Block3" activeClassName="navLinkActive">
-            3
-          </NavLink>
-        </h3>
-      </div>
-    </div>
+    <Navbar collapseOnSelect bg="dark" variant="dark">
+      <Container>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav>
+            <Nav.Link eventKey={1} href="/">
+              1
+            </Nav.Link>
+            <Nav.Link eventKey={2} href="Block2">
+              2
+            </Nav.Link>
+            <Nav.Link eventKey={3} href="Block3">
+              3
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
