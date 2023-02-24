@@ -1,16 +1,22 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
-import { connect } from "react-redux";
-import { countIncrease, countDecrease } from "../../store/store";
-import { bindActionCreators } from "redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCounter } from "../../selects";
+import { actionIncrease, actionDecrease } from "../../reducers";
 
-const Block1 = ({ count, countIncrease, countDecrease }) => {
+const Block1 = () => {
+  //const props = { count, countIncrease, countDecrease };
+  const dispatch = useDispatch();
+  const count = useSelector(selectCounter);
+
   const increase = () => {
-    countIncrease(count);
+    //  countIncrease(count);
+    dispatch(actionIncrease());
   };
 
   const decrease = () => {
-    countDecrease(count);
+    //countDecrease(count);
+    dispatch(actionDecrease());
   };
 
   return (
@@ -34,17 +40,19 @@ const Block1 = ({ count, countIncrease, countDecrease }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    count: state.count,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     count: state.count,
+//   };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    countIncrease: bindActionCreators(countIncrease, dispatch),
-    countDecrease: bindActionCreators(countDecrease, dispatch),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     countIncrease: bindActionCreators(countIncrease, dispatch),
+//     countDecrease: bindActionCreators(countDecrease, dispatch),
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Block1);
+// export default connect(mapStateToProps, mapDispatchToProps)(Block1);
+
+export default Block1;

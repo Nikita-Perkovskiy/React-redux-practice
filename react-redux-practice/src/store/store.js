@@ -1,37 +1,63 @@
+import { configureStore } from "@reduxjs/toolkit";
 import { createStore } from "redux";
+import { countReducer } from "../reducers/index.js";
 
-let initialState = {
-  count: 0,
-};
-export const countIncrease = (count) => {
-  return {
-    type: "CountIncrease",
-    payload: count + 1,
-  };
-};
+//import { COUNT_INCREASE, COUNT_DECREASE } from "./ActionName";
 
-export const countDecrease = (count) => {
-  return {
-    type: "CountDecrease",
-    payload: count - 1,
-  };
-};
+// let initialState = {
+//   count: 0,
+// };
 
-const reducers = (state = initialState, action) => {
-  switch (action.type) {
-    case "CountIncrease":
-      return {
-        ...state,
-        count: action.payload,
-      };
-    case "CountDecrease":
-      return {
-        ...state,
-        count: action.payload,
-      };
-    default:
-      return state;
-  }
-};
+// const Increase = (state = initialState, action) => {
+//   switch (action.type) {
+//     case COUNT_INCREASE:
+//       return {
+//         ...state,
+//         count: action.payload,
+//       };
+//     default:
+//       return state;
+//   }
+// };
 
-export const store = createStore(reducers);
+// const Decrease = (state = initialState, action) => {
+//   switch (action.type) {
+//     case COUNT_DECREASE:
+//       return {
+//         ...state,
+//         count: action.payload,
+//       };
+//     default:
+//       return state;
+//   }
+// };
+
+// const reducers = combineReducers({
+//   Increase,
+//   Decrease,
+// });
+
+// const reducers = (state = initialState, action) => {
+//   switch (action.type) {
+//     case COUNT_INCREASE:
+//       return {
+//         ...state,
+//         count: action.payload,
+//       };
+//     case COUNT_DECREASE:
+//       return {
+//         ...state,
+//         count: action.payload,
+//       };
+//     default:
+//       return state;
+//   }
+// };
+
+const store = configureStore({
+  reducer: {
+    counter: countReducer,
+  },
+});
+
+export default store;
