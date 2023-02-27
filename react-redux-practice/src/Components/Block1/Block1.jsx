@@ -13,6 +13,7 @@ const Block1 = () => {
     //  countIncrease(count);
     dispatch(actionIncrease());
   };
+  
 
   const decrease = () => {
     //countDecrease(count);
