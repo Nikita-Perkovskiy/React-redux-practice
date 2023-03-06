@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { createReducer } from "@reduxjs/toolkit";
+import * as actions from "../store/Actions";
+// import { setCvData } from "../store/Actions";
 
-export const defaultState = {
+export const initialState = {
+  count: 0,
   cv: {
     name: "igor tobolyakov",
     profession: "Frontend developer",
@@ -41,23 +45,37 @@ export const defaultState = {
   loading: true,
 };
 
-const initialState = {
-  count: 0,
-};
-
-export const coutSlice = createSlice({
-  name: "counter",
-  initialState,
-  reducers: {
-    actionIncrease: (state) => {
-      state.count += 1;
-    },
-    actionDecrease: (state) => {
-      state.count -= 1;
-    },
+export default createReducer(initialState, {
+  [actions.countIncrease]: (state) => {
+    state.count += 1;
+  },
+  [actions.countDecrease]: (state) => {
+    state.count -= 1;
+  },
+  [actions.setCvData]: (state, { payload }) => {
+    state.cv = payload;
   },
 });
 
-export const { actionIncrease, actionDecrease } = coutSlice.actions;
+// export const coutSlice = createSlice({
+//   name: "counter",
+//   initialState,
+//   reducers: {
+//     actionIncrease: (state) => {
+//       state.count += 1;
+//     },
+//     actionDecrease: (state) => {
+//       state.count -= 1;
+//     },
+//   },
+// });
 
-export default coutSlice.reducer;
+// export const cvSlice = createSlice({
+//   name: "CV",
+//   initialState,
+//   reducers: {},
+// });
+
+// export const { actionIncrease, actionDecrease } = coutSlice.actions;
+
+// export default coutSlice.reducer;

@@ -4,8 +4,14 @@ import Textarea from "../Form/Textarea/Textarea";
 import { Formik } from "formik";
 import "./index.scss";
 import { Container } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import { selectorCvData } from "../../selects";
+import { setCvData } from "../../store/Actions";
 
 const Block2 = () => {
+  const cvData = useSelector(selectorCvData);
+  const dispatch = useDispatch();
+
   return (
     <div style={{ width: "100%", height: "100%", backgroundColor: "#ffffff" }}>
       <Container>
@@ -14,42 +20,9 @@ const Block2 = () => {
           <div className="page">
             {" "}
             <Formik
-              initialValues={{
-                name: "igor tobolyakov",
-                profession: "Frontend developer",
-                region: "Ukraine, Kiev",
-                skype: "",
-                email: "igor.dan596@google.com",
-                phone: "073 000 00 00",
-                telegram: "",
-                github: "",
-                gitlab: "",
-                linkedin: "",
-                photo: "",
-                summary:
-                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-                workProfession: "Lorem Ipsum is simply dummy text",
-                workTimeStart: "",
-                workTimeEnd: "",
-                workCompanyName: "Lorem Ipsum is simply dummy",
-                workJobDescription:
-                  "Lorem Ipsum is simply dummy text of the printing  and typesetting industry. Lorem Ipsum has been the  industry's standard dummy text ever since the 1500s, when an",
-                professionHardSkills: "JavaScript;",
-                professionSoftSkills: "Fasy to learn;",
-                professionMainSkills: "ReactJS;",
-                languageEnglish: "Proficiency",
-                languageUkrainian: "Proficiency",
-                educationTitle: "Lorem Ipsum is simply dummy text",
-                educationTime: "2014 - 2016",
-                educationDescription:
-                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                coursesTitle: "DAN IT",
-                coursesTime: "2014 - 2016",
-                coursesDescription:
-                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-              }}
+              initialValues={cvData}
               onSubmit={(values) => {
-                console.log(values);
+                dispatch(setCvData(values));
               }}
             >
               {({

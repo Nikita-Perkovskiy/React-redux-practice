@@ -2,18 +2,18 @@ import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCounter } from "../../selects";
-import { actionIncrease, actionDecrease } from "../../reducers";
+import { countIncrease, countDecrease } from "../../store/Actions";
 
 const Block1 = () => {
   const dispatch = useDispatch();
   const count = useSelector(selectCounter);
 
   const increase = () => {
-    dispatch(actionIncrease());
+    dispatch(countIncrease());
   };
 
   const decrease = () => {
-    dispatch(actionDecrease());
+    dispatch(countDecrease());
   };
 
   return (
