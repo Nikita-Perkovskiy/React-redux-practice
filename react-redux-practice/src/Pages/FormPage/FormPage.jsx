@@ -1,14 +1,15 @@
 import React from "react";
-import Input from "../Form/Input/Input";
-import Textarea from "../Form/Textarea/Textarea";
+import Input from "../../Components/Form/Input/Input";
+import Textarea from "../../Components/Form/Textarea/Textarea";
 import { Formik } from "formik";
 import "./index.scss";
 import { Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { selectorCvData } from "../../selects";
 import { setCvData } from "../../store/Actions";
+import { validationSchema } from "./valodations";
 
-const Block2 = () => {
+const Form = () => {
   const cvData = useSelector(selectorCvData);
   const dispatch = useDispatch();
 
@@ -21,6 +22,7 @@ const Block2 = () => {
             {" "}
             <Formik
               initialValues={cvData}
+              validationSchema={validationSchema}
               onSubmit={(values) => {
                 dispatch(setCvData(values));
               }}
@@ -328,4 +330,4 @@ const Block2 = () => {
   );
 };
 
-export default Block2;
+export default Form;
