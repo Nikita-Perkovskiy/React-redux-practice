@@ -1,0 +1,238 @@
+.page {
+  .page__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 -12px;
+  }
+
+  .header-item {
+    margin: 0 12px;
+  }
+
+  .header__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .user-name {
+      margin-bottom: 24px;
+      font-weight: bold;
+      text-transform: capitalize;
+      font-size: 56px;
+      line-height: 1;
+    }
+
+    .user-profession {
+      margin-bottom: 16px;
+      font-size: 36px;
+      line-height: 1;
+    }
+
+    .user-contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-right: -8px;
+      margin-left: -8px;
+
+      .icon-svg {
+        width: 24px;
+      }
+    }
+
+    .info-item {
+      padding-left: 8px;
+      padding-right: 8px;
+      font-size: 16px;
+      color: #9ea1a4;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        font-family: inherit;
+      }
+
+      .text {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .header__photo {
+    padding: 24px;
+    width: 350px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0;
+  }
+
+  .page__profile {
+    display: flex;
+    padding-top: 32px;
+    margin: 0 -12px;
+  }
+
+  .profile__info {
+    flex: 1 1 auto;
+    margin: 0 12px;
+  }
+
+  .profile__main-skills {
+    flex-basis: 350px;
+    flex-shrink: 0;
+    margin: 0 12px;
+  }
+
+  .profile__title {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1;
+
+    &:after {
+      content: "";
+      display: block;
+      flex: 1 1 auto;
+      height: 2px;
+      margin-left: 16px;
+      background-color: #9ea1a4;
+    }
+  }
+
+  .profile__main-skills {
+    .profile__title {
+      margin-bottom: 24px;
+    }
+
+    .profile__block-content {
+    }
+
+    .block-list {
+    }
+
+    .list-item {
+      display: flex;
+      align-items: center;
+
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+
+      &:before {
+        content: "";
+        display: block;
+        width: 6px;
+        height: 6px;
+        margin-right: 16px;
+        border-radius: 50%;
+        background-color: #000;
+      }
+    }
+  }
+
+  .profile__block {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+
+    .profile__title {
+      margin-bottom: 24px;
+    }
+
+    .profile__block-content {
+      text-align: left;
+
+      .block-label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 24px;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .block-time {
+        font-size: 18px;
+        line-height: 1;
+        color: #9ea1a4;
+      }
+
+      .block-title {
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .block-content {
+        font-size: 18px;
+        line-height: 1.33;
+      }
+    }
+
+    .list-item {
+      display: flex;
+      align-items: center;
+
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+
+      &:before {
+        content: "";
+        display: block;
+        flex-shrink: 0;
+        width: 6px;
+        height: 6px;
+        margin-right: 16px;
+        border-radius: 50%;
+        background-color: #000;
+      }
+    }
+
+    &.block-education,
+    &.block-courses {
+      .profile__block-content {
+        display: flex;
+        margin: 0 -12px;
+      }
+
+      .block-label {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 12px;
+        max-width: 450px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .block-title,
+      .block-time {
+        text-align: left;
+      }
+
+      .block-content {
+        padding: 0 12px;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  .profile__block-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -12px;
+
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+
+    .profile__block {
+      width: 50%;
+      padding: 0 12px;
+      box-sizing: border-box;
+    }
+  }
+}

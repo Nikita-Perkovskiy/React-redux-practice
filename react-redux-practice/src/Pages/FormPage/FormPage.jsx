@@ -7,12 +7,13 @@ import { Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { selectorCvData } from "../../selects";
 import { setCvData } from "../../store/Actions";
-import { validationSchema } from "./valodations";
+import { validationSchema } from "./validations";
+import store from "../../store/store";
 
 const Form = () => {
   const cvData = useSelector(selectorCvData);
   const dispatch = useDispatch();
-
+  console.log("FormPage", store.getState());
   return (
     <div style={{ width: "100%", height: "100%", backgroundColor: "#ffffff" }}>
       <Container>

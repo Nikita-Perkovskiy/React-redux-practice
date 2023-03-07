@@ -1,10 +1,10 @@
 import React from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCounter } from "../../selects";
 import { countIncrease, countDecrease } from "../../store/Actions";
 
-const Block1 = () => {
+const Counter = () => {
   const dispatch = useDispatch();
   const count = useSelector(selectCounter);
 
@@ -38,4 +38,4 @@ const Block1 = () => {
   );
 };
 
-export default Block1;
+export default Counter;
