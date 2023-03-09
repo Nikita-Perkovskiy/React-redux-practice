@@ -11,11 +11,9 @@ import { ReactComponent as Linkedin } from "./images/linkedin.svg";
 import { selectorCvData } from "../../selects";
 import "./index.scss";
 import { Container } from "react-bootstrap";
-import store from "../../store/store";
 
 const Block3 = () => {
   const cvData = useSelector(selectorCvData);
-  console.log("Block3", store.getState());
   const {
     name,
     profession,

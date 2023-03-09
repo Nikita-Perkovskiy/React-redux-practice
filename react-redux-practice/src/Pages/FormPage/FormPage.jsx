@@ -13,7 +13,6 @@ import store from "../../store/store";
 const Form = () => {
   const cvData = useSelector(selectorCvData);
   const dispatch = useDispatch();
-  console.log("FormPage", store.getState());
   return (
     <div style={{ width: "100%", height: "100%", backgroundColor: "#ffffff" }}>
       <Container>

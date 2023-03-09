@@ -25,6 +25,11 @@ const Header = () => {
                 CV result
               </Link>
             </Nav.Link>
+            <Nav.Link>
+              <Link className="link" to={"CommentPage"}>
+                CommentPage
+              </Link>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
