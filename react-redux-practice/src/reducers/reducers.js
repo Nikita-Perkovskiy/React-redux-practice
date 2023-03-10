@@ -43,6 +43,8 @@ export const initialState = {
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   loading: true,
+  city: "kiev",
+  weathersCity: {},
 };
 
 export default createReducer(initialState, {
@@ -55,27 +57,13 @@ export default createReducer(initialState, {
   [actions.setCvData]: (state, { payload }) => {
     state.cv = payload;
   },
+  [actions.setCity]: (state, { payload }) => {
+    state.city = payload;
+  },
+  [actions.setWeathers]: (state, { payload }) => {
+    state.weathersCity = payload;
+  },
+  [actions.setLoading]: (state, { payload }) => {
+    state.loading = payload;
+  },
 });
-
-// export const coutSlice = createSlice({
-//   name: "counter",
-//   initialState,
-//   reducers: {
-//     actionIncrease: (state) => {
-//       state.count += 1;
-//     },
-//     actionDecrease: (state) => {
-//       state.count -= 1;
-//     },
-//   },
-// });
-
-// export const cvSlice = createSlice({
-//   name: "CV",
-//   initialState,
-//   reducers: {},
-// });
-
-// export const { actionIncrease, actionDecrease } = coutSlice.actions;
-
-// export default coutSlice.reducer;
