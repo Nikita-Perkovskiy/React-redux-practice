@@ -6,6 +6,7 @@ import {
   SET_WEATHERS,
   SET_LOADING,
   SET_CITY,
+  SET_MESSAGE
 } from "./ActionName";
 import { API_WEATHER_KEY, API_WEATHER_URL } from "../configs/API";
 import { sendRequest } from "../helpers/sendRequest";
@@ -16,6 +17,7 @@ export const setCvData = createAction(SET_CV_DATA);
 export const setWeathers = createAction(SET_WEATHERS);
 export const setLoading = createAction(SET_LOADING);
 export const setCity = createAction(SET_CITY);
+export const setMessage = createAction(SET_MESSAGE)
 
 export const fetchWeathers = (city) => (dispatch) => {
   dispatch(setLoading(true));

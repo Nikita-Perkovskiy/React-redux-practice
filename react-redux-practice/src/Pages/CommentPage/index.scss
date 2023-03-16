@@ -1,19 +1,16 @@
 .add-task {
   .form-task {
     display: flex;
-    flex-direction: column;
     align-items: center;
     margin-bottom: 24px;
   }
 
   .task-massage {
     flex: 1 1 auto;
-    -webkit-appearance: none;
-    display: block;
+    -webkit-appearance: none; /* ← Этот хак нужен сафари для работы (проблема со свойством height)... */
     height: 42px;
-    width: 100%;
-    min-width: 400px;
     padding: 0 14px;
+    margin-right: 16px;
     caret-color: #3b8ef3;
     border-radius: 4px;
     border-color: #6c757d;
@@ -41,7 +38,6 @@
 
   .task-btn {
     position: relative;
-    margin-top: 20px;
     display: inline-flex;
     box-sizing: border-box;
     align-items: center;

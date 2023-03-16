@@ -45,6 +45,7 @@ export const initialState = {
   loading: true,
   city: "kiev",
   weathersCity: {},
+  toDoMessages: [],
 };
 
 export default createReducer(initialState, {
@@ -65,5 +66,8 @@ export default createReducer(initialState, {
   },
   [actions.setLoading]: (state, { payload }) => {
     state.loading = payload;
+  },
+  [actions.setMessage]: (state, { payload }) => {
+    state.toDoMessages = [...state.toDoMessages, payload];
   },
 });

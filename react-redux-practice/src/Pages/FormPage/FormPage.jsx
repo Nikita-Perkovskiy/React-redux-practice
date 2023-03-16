@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectorCvData } from "../../selects";
 import { setCvData } from "../../store/Actions";
 import { validationSchema } from "./validations";
-import store from "../../store/store";
 
 const Form = () => {
   const cvData = useSelector(selectorCvData);

@@ -1,34 +1,23 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectCity,
-  selectWeatherCity,
-  selectLoader,
-} from "../../selects/weather.select";
 import { fetchWeathers } from "../../store/Actions";
+import { selectToDO } from "../../selects/toDo.select";
+import { setMessage } from "../../store/Actions";
 import "./index.scss";
 
 const CommentPage = () => {
   const dispatch = useDispatch();
-  const city = useSelector(selectCity);
-  const loading = useSelector(selectLoader);
-  const weatherCity = useSelector(selectWeatherCity);
+  const messages = useSelector(selectToDO);
 
-  useEffect(() => {
-    dispatch(fetchWeathers(city));
-  }, [city]);
+  const setNewMessage = () => {
+    dispatch(setMessage());
+  };
 
   // console.log("Forecast", weatherCity);
   // console.log("Forecast", city);
 
-  const [taskMessage, setTaskMessage] = useState("");
-
-  const getData = async (e) => {
-    e.preventDefault();
-
-    console.log("getData", e);
-  };
-
+  //const { addTodo } = useContext(TodosContext);
+  console.log(messages);
   return (
     <>
       <div
@@ -36,19 +25,22 @@ const CommentPage = () => {
         style={{ width: "100%", height: "100vh", backgroundColor: "#04260e" }}
       >
         <div className="mx-auto add-task">
-          <form className="form-task" onSubmit={getData}>
+          <div className="form-task">
             <input
               className="task-massage"
-              maxLength={100}
+              maxLength={50}
               placeholder="Description of my new task"
               type="text"
-              // onChange={updateContent}
-              value={taskMessage}
+              name="Todo"
+              value={messages}
+              onChange={(e) => {
+                if (e.target.value !== " ") {
+                  setNewMessage({ id: Date.now(), value: e.target.value });
+                }
+              }}
             />
-            <button className="task-btn" type="submit">
-              Give a task
-            </button>
-          </form>
+            <button className="task-btn">Add task</button>
+          </div>
         </div>
       </div>
     </>
