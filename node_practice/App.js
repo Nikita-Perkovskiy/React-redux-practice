@@ -54,34 +54,40 @@ const path = require("node:path");
 const express = require("express");
 const app = express();
 const { products, users } = require("./bd/data.json");
+const userRouter = require("./routers/users");
+const productRouter = require("./routers/product");
+const registerRouter = require("./routers/register");
+const apiRouter = require("./routers/api");
 
 app.use(express.static("./public"));
+app.use(userRouter);
+app.use(productRouter);
+app.use(registerRouter);
+app.use(apiRouter);
 
-app.get("/register", (request, response) => {
-  response
-    .status(200)
-    .sendFile(path.resolve(__dirname, "./public/register.html"));
-});
+// app.get("/register", (request, response) => {
+//   response
+//     .status(200)
+//     .sendFile(path.resolve(__dirname, "./public/register.html"));
+// });
 
-app.get("/product", (request, response) => {
-  response
-    .status(200)
-    .sendFile(path.resolve(__dirname, "./public/product.html"));
-});
+// app.get("/product", (request, response) => {
+//   response
+//     .status(200)
+//     .sendFile(path.resolve(__dirname, "./public/product.html"));
+// });
 
-app.get("/api/users", (request, response) => {
-  //логика работы с данными
-  response.status(200).json({ success: true, data: users });
-});
+// app.get("/api/users", (request, response) => {
+//   response.status(200).json({ success: true, data: users });
+// });
 
-app.post("/api/users", (request, response) => {
-  //логика работы с данными
-  response.status(200).json({ success: true });
-});
+// app.post("/api/users", (request, response) => {
+//   response.status(200).json({ success: true });
+// });
 
-app.get("/api/products", (request, response) => {
-  response.status(200).json({ success: true, data: products });
-});
+// app.get("/api/products", (request, response) => {
+//   response.status(200).json({ success: true, data: products });
+// });
 
 app.all("*", (request, response) => {
   response.status(404).send("resource not found");
